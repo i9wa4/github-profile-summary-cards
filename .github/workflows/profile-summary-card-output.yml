@@ -1,13 +1,14 @@
 name: GitHub-Profile-Summary-Cards
 on:
   schedule:
-    # - cron: "* */24 * * *"
-    - cron: "55 14 28 * *"
+    - cron: "* */24 * * *"
+    # - cron: "55 14 28 * *"
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     name: generate-github-profile-summary-cards
     permissions:
       contents: write
