@@ -1,23 +1,34 @@
-name: GitHub-Profile-Summary-Cards
+name: github-profile-summary-cards
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
+
 on:
+  workflow_dispatch:
   schedule:
     - cron: "* */24 * * *"
     # - cron: "55 14 28 * *"
   push:
     branches:
       - main
-  workflow_dispatch:
+
+permissions: {}
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
-    # runs-on: ubuntu-latest
     runs-on: ubuntu-24.04-arm
     name: generate-github-profile-summary-cards
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: vn7n24fzkq/github-profile-summary-cards@release
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: github-profile-summary-cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
         env: # default use ${{ secrets.SUMMARY_GITHUB_TOKEN }}, you should replace with your personal access token
           GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
         with:
