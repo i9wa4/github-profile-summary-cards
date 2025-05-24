@@ -37,6 +37,6 @@ jobs:
           # UTC_OFFSET is optional, default to zero
           UTC_OFFSET: 9
           # EXCLUDE is an optional comma seperated list of languages to exclude, defaults to ""
-          EXCLUDE: "JavaScript,HTML"
+          EXCLUDE: "JavaScript,HTML,SCSS,Vim Script"
           # AUTO_PUSH is optional, a boolean variable default to true, whether automatically push generated files to desired branch
           AUTO_PUSH: true
