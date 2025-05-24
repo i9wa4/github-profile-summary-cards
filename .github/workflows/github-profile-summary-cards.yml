@@ -3,11 +3,8 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "* */24 * * *"
-  # push:
-  #   branches:
-  #     - main
+  schedule:
+    - cron: "* */24 * * *"
 
 permissions: {}
 defaults:
@@ -37,6 +34,6 @@ jobs:
           # UTC_OFFSET is optional, default to zero
           UTC_OFFSET: 9
           # EXCLUDE is an optional comma seperated list of languages to exclude, defaults to ""
-          EXCLUDE: "JavaScript,HTML,SCSS,Vim Script"
+          EXCLUDE: "JavaScript,HTML"
           # AUTO_PUSH is optional, a boolean variable default to true, whether automatically push generated files to desired branch
           AUTO_PUSH: true
