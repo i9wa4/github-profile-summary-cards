@@ -3,8 +3,8 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "* */24 * * *"
+  schedule:
+    - cron: "* */24 * * *"
 
 permissions: {}
 defaults:
