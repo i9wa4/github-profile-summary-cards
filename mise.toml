@@ -1,0 +1,9 @@
+[tools]
+# Development tools
+gitleaks = "8.30.0"
+pre-commit = "4.5.0"
+
+# Aqua tools
+"aqua:rhysd/actionlint" = "1.7.9"
+"aqua:suzuki-shunsuke/pinact" = "3.4.5"
+"aqua:zizmorcore/zizmor" = "1.18.0"

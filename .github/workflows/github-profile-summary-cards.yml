@@ -4,7 +4,7 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 14 28 * *"  # 毎月28日 23:00 JST (14:00 UTC)
+    - cron: "0 14 28-31 * *"  # 毎月28-31日 23:00 JST (14:00 UTC)、月末のみ実行
 
 permissions: {}
 defaults:
@@ -21,10 +21,22 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Check if today is the last day of month
+        id: check-last-day
+        run: |
+          TOMORROW=$(TZ=Asia/Tokyo date -d tomorrow +%d)
+          if [[ "$TOMORROW" == "01" ]] || [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "is_last_day=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_last_day=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Checkout
+        if: steps.check-last-day.outputs.is_last_day == 'true'
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: github-profile-summary-cards
+        if: steps.check-last-day.outputs.is_last_day == 'true'
         uses: vn7n24fzkq/github-profile-summary-cards@c2fa12c268d76d3d84ff952be25c1b101968dba9 # release
         env: # default use ${{ secrets.SUMMARY_GITHUB_TOKEN }}, you should replace with your personal access token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -21,7 +21,7 @@
 ![](https://raw.githubusercontent.com/i9wa4/github-profile-summary-cards/main/profile-summary-card-output/algolia/0-profile-details.svg)
 ```
 
-    
+
 
 ---
 
@@ -31,7 +31,7 @@
 ![](https://raw.githubusercontent.com/i9wa4/github-profile-summary-cards/main/profile-summary-card-output/algolia/1-repos-per-language.svg)
 ```
 
-    
+
 
 ---
 
@@ -41,7 +41,7 @@
 ![](https://raw.githubusercontent.com/i9wa4/github-profile-summary-cards/main/profile-summary-card-output/algolia/2-most-commit-language.svg)
 ```
 
-    
+
 
 ---
 
@@ -51,7 +51,7 @@
 ![](https://raw.githubusercontent.com/i9wa4/github-profile-summary-cards/main/profile-summary-card-output/algolia/3-stats.svg)
 ```
 
-    
+
 
 ---
 
@@ -60,5 +60,3 @@
 ```
 ![](https://raw.githubusercontent.com/i9wa4/github-profile-summary-cards/main/profile-summary-card-output/algolia/4-productive-time.svg)
 ```
-
-    
