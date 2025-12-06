@@ -4,7 +4,7 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 14 28-31 * *"  # 毎月28-31日 23:00 JST (14:00 UTC)、月末のみ実行
+    - cron: "55 13 28-31 * *"  # 毎月28-31日 22:55 JST (13:55 UTC)、月末のみ実行
 
 permissions: {}
 defaults:
